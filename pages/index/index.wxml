@@ -1,0 +1,93 @@
+<view class='navbar'>
+  <view class="navbar-item" wx:for="{{navbar}}" wx:key="key"  wx:for-index="idx" data-idx="{{idx}}" bindtap="swichNav">
+    <text class="navbar-text {{currentNavbar==idx ? 'active' : ''}}">{{item}}</text>
+  </view>
+</view>
+
+
+<!-- 推荐-->
+<scroll-view class="hot-item-container {{currentNavbar==0 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;"
+  scroll-y="true" bindscrolltolower="pullUpLoad">
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="key" >
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="line-text">
+    编辑推荐
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{picUrls}}" wx:key="key" >
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="300"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="line-text">
+    风景推荐
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{picUrls}}" wx:key="key" >
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="300"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</scroll-view>
+
+<!--最新-->
+<scroll-view class="latest-item-container {{currentNavbar==1 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
+  <block wx:for="{{latest_list}}" wx:for-index="idx"  >
+    <view wx:if="{{idx%3===0}}" class="latest-item">
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=bb6d8596f8fa57868e3538c76b87d0a6&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dcfb53f93c3177f3e0439f44e18a651b2%2F6609c93d70cf3bc7814060c9db00baa1cd112a56.jpg" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=2ad80830db37628747abddcf04e27015&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dc55331232c9759ee5e5d6888da922963%2F3c6d55fbb2fb4316a08b2f542aa4462309f7d30c.jpg" class="latest-image"
+        data-row-id="{{latest_list[idx+1].row_id}}" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=9294bee090879d3e499f18cf7d15be36&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D1682a2cca76eddc432eabcb851b2dc88%2F50da81cb39dbb6fd4a10690f0324ab18972b374b.jpg" class="latest-image"
+        data-row-id="{{latest_list[idx+2].row_id}}" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+      
+
+    </view>
+  </block>
+  <block wx:for="{{latest_list}}" wx:for-index="idx"  >
+    <view wx:if="{{idx%3===0}}" class="latest-item">
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=bb6d8596f8fa57868e3538c76b87d0a6&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dcfb53f93c3177f3e0439f44e18a651b2%2F6609c93d70cf3bc7814060c9db00baa1cd112a56.jpg" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=2ad80830db37628747abddcf04e27015&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dc55331232c9759ee5e5d6888da922963%2F3c6d55fbb2fb4316a08b2f542aa4462309f7d30c.jpg" class="latest-image"
+        data-row-id="{{latest_list[idx+1].row_id}}" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=9294bee090879d3e499f18cf7d15be36&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D1682a2cca76eddc432eabcb851b2dc88%2F50da81cb39dbb6fd4a10690f0324ab18972b374b.jpg" class="latest-image"
+        data-row-id="{{latest_list[idx+2].row_id}}" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+    </view>
+  </block>
+  <block wx:for="{{latest_list}}" wx:for-index="idx"  >
+    <view wx:if="{{idx%3===0}}" class="latest-item">
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=bb6d8596f8fa57868e3538c76b87d0a6&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dcfb53f93c3177f3e0439f44e18a651b2%2F6609c93d70cf3bc7814060c9db00baa1cd112a56.jpg" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=2ad80830db37628747abddcf04e27015&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dc55331232c9759ee5e5d6888da922963%2F3c6d55fbb2fb4316a08b2f542aa4462309f7d30c.jpg" class="latest-image"
+        data-row-id="{{latest_list[idx+1].row_id}}" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512542103344&di=9294bee090879d3e499f18cf7d15be36&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D1682a2cca76eddc432eabcb851b2dc88%2F50da81cb39dbb6fd4a10690f0324ab18972b374b.jpg" class="latest-image"
+        data-row-id="{{latest_list[idx+2].row_id}}" bindtap="onItemClick"
+        style="width:{{(systemInfo.windowWidth-2)/3}}px;height:{{(systemInfo.windowWidth-2)/4}}px;" mode="scaleToFill">
+      </image>
+
+    </view>
+  </block>
+</scroll-view>

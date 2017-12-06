@@ -1,1 +1,1 @@
-# WechatDome
+# WechatDome Art

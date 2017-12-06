@@ -1,0 +1,40 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/discover/discover",
+    "pages/setting/setting",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat Dome",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "backgroundColor": "green",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/bar_home_black.png",
+        "selectedIconPath": "images/bar_home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "iconPath": "images/bar_explore_black.png",
+        "selectedIconPath": "images/bar_explore.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "iconPath": "images/bar_mine_black.png",
+        "selectedIconPath": "images/bar_mine.png",
+        "text": "设置"
+      }
+    ]
+  }
+}
