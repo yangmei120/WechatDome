@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/discover/discover",
     "pages/setting/setting",
+    "pages/qrcode/qrcode",
     "pages/logs/logs"
   ],
   "window":{

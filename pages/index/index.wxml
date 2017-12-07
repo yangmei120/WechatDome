@@ -91,3 +91,12 @@
     </view>
   </block>
 </scroll-view>
+
+<!--展示-->
+<scroll-view class="last-item-container {{currentNavbar==2 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeigt}}px;" scroll-y="true" bindscrolltolower="pullUpLoad">
+  <view wx:for="{{imgList}}" wx:key="key">
+    <image src="{{item}}" class="discover-image"
+      style="width:{{systemInfo.windowWidth-20}}px;height: {{(systemInfo.windowWidth-20)/2.742}}px;">
+    </image>
+  </view>
+</scroll-view>

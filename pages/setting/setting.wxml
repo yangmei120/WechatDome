@@ -1,3 +1,16 @@
-<view>
-  设置界面
-</view>
+<view class="container" style="background-image: url('../../images/bg.png');">
+  <image src="/images/snow.jpg" class='avater'></image>
+  <view class='section'>
+    <view bindtap="login">
+      <button class='login mini-sm' type="primary">登 录</button>
+    </view>
+    <view class="item" data-pay="wechat" bindtap="onItemClick">
+      <image src="/images/pay_wx_order.png" class="icon"></image>
+      <text class="pay-text">支持</text>
+    </view>
+    <view class="item" data-pay="alipgy" bindtap="onItemClickAli">
+      <image src="/images/pay_zhifubao_order.png" class="icon"></image>
+      <text class="pay-text">支持</text>
+    </view>
+  </view>
+</view> 
